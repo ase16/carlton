@@ -1,0 +1,27 @@
+{
+  "name": "carlton",
+  "version": "1.0.0",
+  "description": "Carlton - Company Space Rest Service",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ase16/carlton.git"
+  },
+  "author": "Oliver Leumann, Andreas Albrecht, Roy Rutishauser, Shanmathuran Sritharan",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "config": "^1.19.0",
+    "dotenv": "^2.0.0",
+    "express": "^4.13.4",
+    "express-stormpath": "^3.1.2",
+    "mongodb": "^2.1.14",
+    "winston": "^2.2.0"
+  },
+  "devDependencies": {
+    "errorhandler": "^1.4.3"
+  }
+}
