@@ -31,6 +31,24 @@ Either you get as server response a json-object with a `terms` property that con
 of the current user, or (in case something went wrong on the backend) you get an `err` property with a hopefully
 understandable error-message.
 
+### Check whether carlton is online
+```javascript
+$.ajax({
+	url: '/online',
+	type: 'get',
+	dataType: 'json',
+	cache: false,
+	success: function( res ) {
+		console.log('Response from server = ', res);
+	},
+    error: function( xhr, status, errorThrown ) {
+        console.log('AJAX ERROR: xhr = ', xhr);
+        console.log('AJAX ERROR: status = ', status);
+        console.log('AJAX ERROR: errorThrown = ', errorThrown);
+    }
+});
+```
+
 ### Create a new term
 ```javascript
 $.ajax({
@@ -42,11 +60,11 @@ $.ajax({
 	success: function( res ) {
 		console.log('Response from server = ', res);
 	},
-        error: function( xhr, status, errorThrown ) {
-             console.log('AJAX ERROR: xhr = ', xhr);
-             console.log('AJAX ERROR: status = ', status);
-             console.log('AJAX ERROR: errorThrown = ', errorThrown);
-        }
+    error: function( xhr, status, errorThrown ) {
+        console.log('AJAX ERROR: xhr = ', xhr);
+        console.log('AJAX ERROR: status = ', status);
+        console.log('AJAX ERROR: errorThrown = ', errorThrown);
+    }
 });
 ```
 
@@ -60,11 +78,11 @@ $.ajax({
 	success: function( res ) {
 		console.log('Response from server = ', res);
 	},
-        error: function( xhr, status, errorThrown ) {
-            console.log('AJAX ERROR: xhr = ', xhr);
-            console.log('AJAX ERROR: status = ', status);
-            console.log('AJAX ERROR: errorThrown = ', errorThrown);
-        }
+    error: function( xhr, status, errorThrown ) {
+        console.log('AJAX ERROR: xhr = ', xhr);
+        console.log('AJAX ERROR: status = ', status);
+        console.log('AJAX ERROR: errorThrown = ', errorThrown);
+    }
 });
 ```
 
@@ -79,11 +97,11 @@ $.ajax({
 	success: function( res ) {
 		console.log('Response from server = ', res);
 	},
-        error: function( xhr, status, errorThrown ) {
-            console.log('AJAX ERROR: xhr = ', xhr);
-            console.log('AJAX ERROR: status = ', status);
-            console.log('AJAX ERROR: errorThrown = ', errorThrown);
-        }
+    error: function( xhr, status, errorThrown ) {
+        console.log('AJAX ERROR: xhr = ', xhr);
+        console.log('AJAX ERROR: status = ', status);
+        console.log('AJAX ERROR: errorThrown = ', errorThrown);
+    }
 });
 ```
 
@@ -97,10 +115,10 @@ $.ajax({
 	success: function( res ) {
 		console.log('Response from server = ', res);
 	},
-        error: function( xhr, status, errorThrown ) {
-            console.log('AJAX ERROR: xhr = ', xhr);
-            console.log('AJAX ERROR: status = ', status);
-            console.log('AJAX ERROR: errorThrown = ', errorThrown);
-        }
+    error: function( xhr, status, errorThrown ) {
+        console.log('AJAX ERROR: xhr = ', xhr);
+        console.log('AJAX ERROR: status = ', status);
+        console.log('AJAX ERROR: errorThrown = ', errorThrown);
+    }
 });
 ```

@@ -27,6 +27,9 @@ app.use(expressStormpath.init(app, { expand: { customData: true } }));	// --> ht
 // Bind routes
 app.use('/company', company);
 
+// Make a route available where we can check if carlton is online
+app.get('/online', function(req, res) { res.json( { info: 'Carlton is online!' } ); });
+
 // Our server can start listening as soon as the Stormpath SDK has been initialized
 app.on('stormpath.ready', function() {
 	app.listen(3001, function () {
