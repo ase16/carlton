@@ -30,6 +30,16 @@ app.use('/company', company);
 // Make a route available where we can check if carlton is online
 app.get('/online', function(req, res) { res.json( { info: 'Carlton is online!' } ); });
 
+// Make a route available where we can test some load
+app.get('/loadtest', function(req, res) {
+	function sleep(milliSeconds) {
+		var startTime = new Date().getTime();
+		while (new Date().getTime() < startTime + milliSeconds);
+	}
+	sleep(1000);
+	res.json( { info: 'Carlton is under load!' } );
+});
+
 // Our server can start listening as soon as the Stormpath SDK has been initialized
 app.on('stormpath.ready', function() {
 	app.listen(3001, function () {
