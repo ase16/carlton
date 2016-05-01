@@ -27,8 +27,10 @@ app.use(bodyParser.urlencoded({ extended: false }));					// --> https://github.c
 var corsOrigin = config.get('cors-origin');								// We need to copy the loaded cors properties to a new object, to avoid "read only property" errors
 var corsOptions = {
 	origin: corsOrigin,
+	methods: 'GET,HEAD,PUT,POST,DELETE',
 	credentials: true
 };
+console.log("cors-options = ", corsOptions);
 app.use(cors(corsOptions));
 
 // Must be defined as the last middleware, but before our routes
