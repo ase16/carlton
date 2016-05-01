@@ -4,8 +4,10 @@
 require('dotenv').config({path: '.env.stormpath'});						// Automatically reads in .env files and sets environment variables --> https://github.com/motdotla/dotenv#usage
 var express = require('express');
 var expressStormpath = require('express-stormpath');					// Our "Tenant" for Stormpath is "majestic-panther" --> https://api.stormpath.com/login
+var config = require('config');
 
 // Express modules
+var cors = require('cors');												// --> https://github.com/expressjs/cors
 var bodyParser = require('body-parser');								// --> https://github.com/expressjs/body-parser
 
 // Custom modules
@@ -24,13 +26,17 @@ app.use(bodyParser.urlencoded({ extended: false }));					// --> https://github.c
 // Must be defined as the last middleware, but before our routes
 app.use(expressStormpath.init(app, { expand: { customData: true } }));	// --> http://docs.stormpath.com/nodejs/express/latest/configuration.html#initialize-express-stormpath
 
+// Enable CORS for geoffrey
+var corsOptions = config.get('cors-options');
+app.use(cors(corsOptions));
+
 // Bind routes
 app.use('/company', company);
 
 // Make a route available where we can check if carlton is online
 app.get('/online', function(req, res) { res.json( { info: 'Carlton is online!' } ); });
 
-// Make a route available where we can test some load
+// Make a route available where we can test some "load" (using a blocking function for 1 second)
 app.get('/loadtest', function(req, res) {
 	function sleep(milliSeconds) {
 		var startTime = new Date().getTime();
