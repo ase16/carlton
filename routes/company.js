@@ -19,6 +19,8 @@ router.route('/terms')
 		terms.read(req, function(err, data) {
 			if (!err) {
 				res.json( { terms: data } );
+				console.log("req = ", req);
+				console.log("res = ", res);
 			}
 			else {
 				res.json( { err: err } );

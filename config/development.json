@@ -25,7 +25,7 @@
     },
 
     "cors-options": {
-        "origin": "http://146.148.11.79"
+        "origin": "http://146.148.11.79:3000"
     },
 
     "admin-emails": [
