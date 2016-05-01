@@ -24,8 +24,11 @@ app.use(bodyParser.json());												// --> https://github.com/expressjs/body-
 app.use(bodyParser.urlencoded({ extended: false }));					// --> https://github.com/expressjs/body-parser#bodyparserurlencodedoptions
 
 // Enable CORS for geoffrey
-var corsOptions = config.get('cors-options');
-console.log("corsOptions = ", corsOptions);
+var corsOrigin = config.get('cors-origin');								// We need to copy the loaded cors properties to a new object, to avoid "read only property" errors
+var corsOptions = {
+	origin: corsOrigin,
+	credentials: true
+};
 app.use(cors(corsOptions));
 
 // Must be defined as the last middleware, but before our routes
