@@ -25,6 +25,7 @@ app.use(bodyParser.urlencoded({ extended: false }));					// --> https://github.c
 
 // Enable CORS for geoffrey
 var corsOptions = config.get('cors-options');
+console.log("corsOptions = ", corsOptions);
 app.use(cors(corsOptions));
 
 // Must be defined as the last middleware, but before our routes
