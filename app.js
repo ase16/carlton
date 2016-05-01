@@ -24,9 +24,8 @@ app.use(bodyParser.json());												// --> https://github.com/expressjs/body-
 app.use(bodyParser.urlencoded({ extended: false }));					// --> https://github.com/expressjs/body-parser#bodyparserurlencodedoptions
 
 // Enable CORS for geoffrey
-// var corsOptions = config.get('cors-options');
-app.use(cors());
-// app.use(cors(corsOptions));
+var corsOptions = config.get('cors-options');
+app.use(cors(corsOptions));
 
 // Must be defined as the last middleware, but before our routes
 app.use(expressStormpath.init(app, { expand: { customData: true } }));	// --> http://docs.stormpath.com/nodejs/express/latest/configuration.html#initialize-express-stormpath

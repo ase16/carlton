@@ -16,10 +16,10 @@ router.all('/*', stormpath.groupsRequired(['companies']), function(req, res, nex
 router.route('/terms')
 
 	.get(function(req, res, next) {
+		console.log("req = ", req);
 		terms.read(req, function(err, data) {
 			if (!err) {
 				res.json( { terms: data } );
-				console.log("req = ", req);
 				console.log("res = ", res);
 			}
 			else {
