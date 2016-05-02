@@ -27,7 +27,7 @@ app.use(bodyParser.urlencoded({ extended: false }));					// --> https://github.c
 var corsOrigin = config.get('cors-origin');								// We need to copy the loaded cors properties to a new object, to avoid "read only property" errors
 var corsOptions = {
 	origin: corsOrigin,
-	methods: 'GET,HEAD,PUT,POST,DELETE',
+	methods: ['HEAD', 'GET', 'POST', 'PUT', 'DELETE'],
 	credentials: true
 };
 console.log("cors-options = ", corsOptions);

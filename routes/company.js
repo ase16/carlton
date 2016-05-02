@@ -24,6 +24,8 @@ var corsOptions = {
 
 console.log("company::corsOptions = ", corsOptions);
 
+router.options('/*', cors(corsOptions));
+
 router.all('/*', cors(corsOptions), function(req, res, next) {
 	console.log('Entered /company space (1)');
 	winston.info('Entered /company space (1)');
