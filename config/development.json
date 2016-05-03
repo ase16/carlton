@@ -24,8 +24,6 @@
         "level": "info"
     },
 
-    "cors-origin": "http://146.148.11.79:3000",
-
     "admin-emails": [
         "andreas.albrecht@uzh.ch",
         "oliver.leumann@gmail.com",

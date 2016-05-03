@@ -34,7 +34,7 @@ understandable error-message.
 ### Check whether carlton is online
 ```javascript
 $.ajax({
-	url: '/online',
+	url: 'http://104.196.103.90:3001/carlton/dev/online',
 	type: 'get',
 	dataType: 'json',
 	cache: false,
@@ -52,7 +52,7 @@ $.ajax({
 ### Create a new term
 ```javascript
 $.ajax({
-	url: '/company/terms',
+	url: 'http://104.196.103.90:3001/carlton/company/terms',
 	type: 'post',
 	data: { 'term': 'BatmanVSSuperman' },
 	dataType: 'json',
@@ -71,7 +71,7 @@ $.ajax({
 ### List the terms
 ```javascript
 $.ajax({
-	url: '/company/terms',
+	url: 'http://104.196.103.90:3001/carlton/company/terms',
 	type: 'get',
 	dataType: 'json',
 	cache: false,
@@ -89,7 +89,7 @@ $.ajax({
 ### Update a term
 ```javascript
 $.ajax({
-	url: '/company/terms/BatmanVSSuperman',
+	url: 'http://104.196.103.90:3001/carlton/company/terms/BatmanVSSuperman',
 	type: 'put',
 	data: { 'newTerm': 'IronMan' },
 	dataType: 'json',
@@ -108,7 +108,7 @@ $.ajax({
 ### Delete a term
 ```javascript
 $.ajax({
-	url: '/company/terms/IronMan',
+	url: 'http://104.196.103.90:3001/carlton/company/terms/IronMan',
 	type: 'delete',
 	dataType: 'json',
 	cache: false,
