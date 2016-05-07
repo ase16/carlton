@@ -10,7 +10,7 @@ var config = require('config');
 var bodyParser = require('body-parser');								// --> https://github.com/expressjs/body-parser
 
 // Custom modules
-var db = require('./dbModule.js');
+var datastore = require('./datastore.js');
 
 // Routes modules
 var company = require('./routes/company');
@@ -19,7 +19,7 @@ var dev = require('./routes/dev');
 // Create express application
 var app = express();													// --> http://expressjs.com/en/4x/api.html#app
 
-// Initialize the bodyParser so
+// Initialize the body-parser so that we're able to access req.body of incoming requests
 app.use(bodyParser.json());												// --> https://github.com/expressjs/body-parser#bodyparserjsonoptions
 app.use(bodyParser.urlencoded({ extended: false }));					// --> https://github.com/expressjs/body-parser#bodyparserurlencodedoptions
 
@@ -34,8 +34,8 @@ app.use('/dev', dev);
 app.on('stormpath.ready', function() {
 	app.listen(3001, function () {
 		console.log('Carlton is listening on port 3001');
-		db.connect(function () {
-			console.log("Carlton has connection to MongoDB");
+		datastore.connect(config.get('gcloud'), function () {
+			console.log("Carlton has connection to Google Cloud Datastore");
 		});
 	});
 });

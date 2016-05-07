@@ -1,15 +1,12 @@
 "use strict";
 
-// db-object
-var db = require('./../../dbModule.js');
-
+var datastore = require('./../../datastore.js');
 
 // Terms module is designed like a mini CRUD application
 var terms = {
 
 	create: function(req, callback) {
 
-		// ToDo: Make sure all necessary params exist and are what they should be
 		console.log("POST /company/terms ==> CREATE: req.body = ", req.body);
 		var term = req.body.term;
 
@@ -25,7 +22,7 @@ var terms = {
 			req.user.customData.terms.push(term);
 			req.user.customData.save(function(err, data) {
 				if (!err) {
-					db.insertTerm(term, req.user.email, function(err) {
+					datastore.insertTerm(term, req.user.email, function(err) {
 						if (!err) return callback(null, data.terms);
 						else callback(err)
 					});
@@ -44,7 +41,6 @@ var terms = {
 
 	read: function(req, callback) {
 
-		// ToDo: Make sure all necessary params exist and are what they should be
 		console.log("GET /company/terms ==> READ");
 
 		if (req.user.customData.terms !== undefined) {
@@ -59,11 +55,10 @@ var terms = {
 
 	update: function(req, callback) {
 
-		// ToDo: Make sure all necessary params exist and are what they should be
 		var originalTerm = req.params.id;
 		var newTerm = req.body.newTerm;
 		console.log("PUT /company/terms/:id ==> UPDATE: originalTerm = ", originalTerm);
-		console.log("PUT /company/terms/:id ==> UPDATE: term = ", newTerm);
+		console.log("PUT /company/terms/:id ==> UPDATE: newTerm = ", newTerm);
 
 		if (req.user.customData.terms !== undefined && originalTerm && newTerm) {
 			var i = req.user.customData.terms.indexOf(originalTerm);
@@ -71,9 +66,9 @@ var terms = {
 			req.user.customData.save(function(err, data) {
 
 				if(!err) {
-					db.insertTerm(newTerm, req.user.email, function(err) {
+					datastore.insertTerm(newTerm, req.user.email, function(err) {
 						if (!err) {
-							db.removeTerm(originalTerm, req.user.email, function(err) {
+							datastore.removeTerm(originalTerm, req.user.email, function(err) {
 								if(!err) return callback(null, data.terms);
 								else callback(err)
 							})
@@ -93,7 +88,6 @@ var terms = {
 
 	delete: function(req, callback) {
 
-		// ToDo: Make sure all necessary params exist and are what they should be
 		var term = req.params.id;
 		console.log("DELETE /company/terms/:id ==> DELETE: term = ", term);
 
@@ -103,7 +97,7 @@ var terms = {
 			req.user.customData.save(function(err, data) {
 
 				if (!err) {
-					db.removeTerm(term, req.user.email, function(err) {
+					datastore.removeTerm(term, req.user.email, function(err) {
 						if(!err) return callback(null, data.terms);
 						else callback(err)
 					})

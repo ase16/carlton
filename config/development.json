@@ -1,19 +1,4 @@
 {
-    "twitter": {
-        "consumer_key": "",
-        "consumer_secret": "",
-        "access_token": "",
-        "access_token_secret": ""
-    },
-
-    "mongodb": {
-        "host": "localhost",
-        "port": 27017,
-        "dbname": "twitterdata",
-        "user": "",
-        "password": ""
-    },
-
     "gcloud": {
         "projectId": "",
         "keyFilename": "",
@@ -22,12 +7,5 @@
 
     "log": {
         "level": "info"
-    },
-
-    "admin-emails": [
-        "andreas.albrecht@uzh.ch",
-        "oliver.leumann@gmail.com",
-        "roy.rutishauser@gmail.com",
-        "shanmathuran.sritharan@uzh.ch"
-    ]
+    }
 }

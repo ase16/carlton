@@ -7,6 +7,8 @@ Currently only `terms` are handled with the service (`viz` is next to come).
 ## Installation & Set Up
 * Clone/fetch/pull the current version of the repository and run `npm install`.
 * Grab the `.env.stormpath` file from our shared google docs folder and drop it into the project's root folder.
+* Grab the `.env.cge` file from our shared google docs folder and drop it into the project's
+root folder.
 * Check if your `development.json` is properly set up (compare it to the one in our google docs folder).
 * Make sure you have mongo running on your machinge, e.g. with a statment like `mongod --dbpath="path/to/data/directory"`
 * That's it, run `node app` in your project and enjoy.

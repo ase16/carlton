@@ -3,7 +3,6 @@
 // Third-party modules
 var router = require('express').Router();
 var stormpath = require('express-stormpath');
-var config = require('config');
 
 // Custom modules
 var terms = require('./company/terms');
